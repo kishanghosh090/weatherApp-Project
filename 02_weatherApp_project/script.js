@@ -78,8 +78,18 @@ document.addEventListener("DOMContentLoaded", () => {
     errorMessage.classList.remove("hidden");
   }
   function saveHistory(data) {
-    const historycontainer = document.createElement("div");
-    historycontainer.classList.add("history-container");
+    let historycontainer;
+    if (historyWeather.length == 0) {
+      historycontainer = document.createElement("div");
+      historycontainer.classList.add("history-container");
+    }
+    if (historyWeather.length != 0) {
+      historycontainer = document.querySelector(".history-container");
+      console.log(historycontainer);
+      
+    }
+    console.log(historycontainer);
+    
 
     const history = document.createElement("div");
     history.innerHTML = `
@@ -87,7 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
     <p>${data.main.temp}</p>
     <p>${data.weather[0].description}</p>
     `;
-    historycontainer.classList.add("history");
     historycontainer.appendChild(history);
     if (historyWeather.length == 0) {
       historycontainerMain.appendChild(historycontainer);
