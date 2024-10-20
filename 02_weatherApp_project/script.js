@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cityInput.value = "";
     } catch (error) {
       console.log(error);
+      loader.classList.add("hidden");
       showError();
     }
   });
@@ -86,10 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (historyWeather.length != 0) {
       historycontainer = document.querySelector(".history-container");
       console.log(historycontainer);
-      
     }
     console.log(historycontainer);
-    
 
     const history = document.createElement("div");
     history.innerHTML = `
